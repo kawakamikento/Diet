@@ -1,0 +1,39 @@
+# ビルド成果物
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider (JetBrains)
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# 環境設定
+appsettings.Development.json
+appsettings.Local.json
+.env
+
+# OS
+.DS_Store
+Thumbs.db
