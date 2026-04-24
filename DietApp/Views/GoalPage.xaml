@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DietApp.ViewModels"
+             x:Class="DietApp.Views.GoalPage"
+             x:DataType="vm:GoalViewModel"
+             Title="目標設定">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="ダイエット目標を設定" FontSize="22" FontAttributes="Bold" />
+
+            <Label Text="開始体重 (kg)" />
+            <Entry Keyboard="Numeric" Text="{Binding StartWeight}" />
+
+            <Label Text="目標体重 (kg)" />
+            <Entry Keyboard="Numeric" Text="{Binding TargetWeight}" />
+
+            <Label Text="開始日" />
+            <DatePicker Date="{Binding StartDate}" />
+
+            <Label Text="目標日" />
+            <DatePicker Date="{Binding TargetDate}" />
+
+            <Button Text="保存" Command="{Binding SaveCommand}" />
+
+            <Label Text="{Binding StatusMessage}" TextColor="Gray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

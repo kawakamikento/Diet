@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DietApp.ViewModels"
+             xmlns:models="clr-namespace:DietApp.Models"
+             x:Class="DietApp.Views.ProgressPage"
+             x:DataType="vm:ProgressViewModel"
+             Title="進捗">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="体重を記録" FontSize="22" FontAttributes="Bold" />
+
+            <Entry Keyboard="Numeric"
+                   Placeholder="今日の体重 (kg)"
+                   Text="{Binding InputWeight}" />
+            <Button Text="記録" Command="{Binding RecordCommand}" />
+
+            <Label Text="{Binding StatusMessage}" TextColor="Gray" />
+
+            <BoxView HeightRequest="1" Color="LightGray" />
+
+            <Label Text="進捗サマリ" FontSize="18" FontAttributes="Bold" />
+            <Label Text="{Binding Summary}" LineBreakMode="WordWrap" />
+
+            <BoxView HeightRequest="1" Color="LightGray" />
+
+            <Label Text="直近の記録" FontSize="18" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding RecentRecords}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:WeightRecord">
+                        <Grid Padding="0,6" ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" />
+                            <Label Grid.Column="1" Text="{Binding Weight, StringFormat='{0:0.0} kg'}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
